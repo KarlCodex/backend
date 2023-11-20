@@ -32,6 +32,6 @@ class CarouselItems extends Model
         'name',
         'image_path',
         'description',
-        'user_id'
+        'user_id',
     ];
 }
