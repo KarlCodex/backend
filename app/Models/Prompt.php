@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CarouselItems extends Model
+class Prompt extends Model
 {
     use HasFactory;
 
@@ -14,14 +14,14 @@ class CarouselItems extends Model
      *
      * @var string
      */
-    protected $table = 'carousel_items';
+    protected $table = 'prompts';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'carousel_id';
+    protected $primaryKey = 'prompt_id';
 
     /**
      * The attributes that are mass assignable.
@@ -29,9 +29,8 @@ class CarouselItems extends Model
      * @var array
      */
     protected $fillable = [
-        'carousel_name',
-        'image_path',
-        'description',
+        'prompt',
+        'sender',
         'user_id',
     ];
 }

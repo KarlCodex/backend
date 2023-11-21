@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class UserRequest extends FormRequest
 {
     /**
@@ -16,28 +17,40 @@ class UserRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
+     * 
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    // public function rules(): array
+    // {
+    //     return [
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|unique:App\Models\User,email|max:255',
+    //         'password' => 'required|min:8',
+    //     ];
+    // }
+
     public function rules(): array
     {
-        if (request()->routeIs('user.store')) {
+        if(request()->RouteIs('user.store')){
             return [
-                'name'       => 'required|string|max:255',
-                'email'      => 'required|string|email|unique:App\Models\User,email|max:255',
-                'password'   => 'required|min:8',
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|unique:App\Models\User,email|max:255',
+                'password' => 'required|min:8',
             ];
-        } else if (request()->routeIs('user.update')) {
+        } 
+        else if(request()->RouteIs('user.update')){
             return [
-                'name'       => 'required|string|max:255',
+                'name' => 'required|string|max:255',
             ];
-        } else if (request()->routeIs('user.email')) {
+        }
+        else if(request()->RouteIs('user.email')){
             return [
-                'email'      => 'required|string|email|max:255',
+                'email' => 'required|string|email|max:255',
             ];
-        } else if (request()->routeIs('user.password')) {
+        }
+        else if(request()->RouteIs('user.password')){
             return [
-                'password'   => 'required|confirmed|min:8',
+                'password' => 'required|confirmed|min:8',
             ];
         }
     }
